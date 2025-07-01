@@ -1,8 +1,3 @@
-
-
-
-
-
 function updateDateTime() {
             const now = new Date();
             
@@ -56,42 +51,37 @@ function updateDateTime() {
              error => console.log(error)
         )
         function search(){
-            let target = document.getElementById("cityInput").value
-                //format is Country-City
-            let [paye, cite] = target.split("-");
-            document.getElementsByClassName("prayer-container")[0].innerHTML = ""
-            const salawat = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
-        axios.get(`https://api.aladhan.com/v1/timingsByCity?city=${cite}&country=${paye}&method=2`).then(
-            (response) => {
-                let times = response.data.data.timings
-                for ( let salat of salawat){   
-                    let content = `     
-                <div class="prayer">
-                <h2 class="title">${salat}</h2>
-                <h4 class="time">${times[salat]}</h4>
-            </div>
-               
-                `
-                
-                document.getElementsByClassName("prayer-container")[0].innerHTML += content
+            let target = document.getElementById("cityInput").value;
+            if(target === "other") {
+                target = prompt("Please enter your city in the format Country-City (e.g. Egypt-Cairo):");
+                if(!target || !target.includes("-")) {
+                    alert("Invalid format. Please use Country-City.");
+                    return;
                 }
-
-                document.getElementById("selectedCity").innerHTML = ''
-                document.getElementById("selectedCity").innerHTML = `${paye} - ${cite}`
-
-                
-
             }
-        ).catch(
-             error => console.log(error)
-        )
-
-
-
-
-
-
-
+            // format is Country-City
+            let [paye, cite] = target.split("-");
+            document.getElementsByClassName("prayer-container")[0].innerHTML = "";
+            const salawat = ["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+            axios.get(`https://api.aladhan.com/v1/timingsByCity?city=${cite}&country=${paye}&method=2`).then(
+                (response) => {
+                    let times = response.data.data.timings;
+                    for ( let salat of salawat){   
+                        let content = `     
+                    <div class="prayer">
+                    <h2 class="title">${salat}</h2>
+                    <h4 class="time">${times[salat]}</h4>
+                </div>
+                    
+                    `
+                    document.getElementsByClassName("prayer-container")[0].innerHTML += content;
+                    }
+                    document.getElementById("selectedCity").innerHTML = '';
+                    document.getElementById("selectedCity").innerHTML = `${paye} - ${cite}`;
+                }
+            ).catch(
+                 error => console.log(error)
+            );
         }
       
 

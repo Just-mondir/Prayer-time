@@ -91,30 +91,42 @@
         #cityInput {
             width: 100%;
             padding: 1rem 1.5rem;
-            padding-right: 3rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 16px;
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(40, 40, 40, 0.95);
             font-size: 1rem;
             font-family: inherit;
             outline: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            appearance: none;
+            cursor: pointer;
+        }
+        
+        #cityInput:focus {
+            border-color: rgba(102, 126, 234, 0.7);
+            box-shadow: 0 4px 20px rgba(102,126,234,0.15), 0 0 0 3px rgba(255, 255, 255, 0.12);
+            background: rgba(255,255,255,0.22);
+        }
+        
+        #cityInput option {
+            color: #333;
+            background: #f7f7fa;
+            font-size: 1rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+        }
+        
+        #cityInput option:checked, #cityInput option:hover {
+            background: #e0e7ff;
+            color: #222;
         }
         
         #cityInput::placeholder {
             color: rgba(255, 255, 255, 0.6);
             font-weight: 300;
-        }
-        
-        #cityInput:focus {
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 
-                0 4px 20px rgba(0,0,0,0.2),
-                0 0 0 3px rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
         }
         
         .search-icon {

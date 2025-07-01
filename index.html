@@ -17,8 +17,17 @@
         
         <div class="city-selection">
             <div class="city-input-container">
-                <input type="text" id="cityInput" placeholder="Search for your city - form : Country-City" autocomplete="off">
-                
+                <select id="cityInput">
+                    <option value="Egypt-Cairo">Egypt - Cairo</option>
+                    <option value="Algeria-Algiers">Algeria - Algiers</option>
+                    <option value="France-Paris">France - Paris</option>
+                    <option value="Canada-Montreal">Canada - Montreal</option>
+                    <option value="Morocco-Marrakech">Morocco - Marrakech</option>
+                    <option value="Saudi Arabia-Makkah">Saudi Arabia - Makkah</option>
+                    <option value="USA-New York">USA - New York</option>
+                    <option value="Italy-Rome">Italy - Rome</option>
+                    <option value="other">Other...</option>
+                </select>
                 <span><button class="search-icon" onclick="search()">🔍</button></span>
             </div>
             <div class="selected-city" id="selectedCity">Select your city</div>
