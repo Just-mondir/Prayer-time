@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Times</title>
+   <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    <div id="project-container">
+        <div class="datetime-container">
+            <div class="date-display" id="dateDisplay"></div>
+            <div class="time-display" id="timeDisplay"></div>
+        </div>
+        <h1>Prayer Times</h1>
+        
+        <div class="city-selection">
+            <div class="city-input-container">
+                <input type="text" id="cityInput" placeholder="Search for your city - form : Country-City" autocomplete="off">
+                
+                <span><button class="search-icon" onclick="search()">🔍</button></span>
+            </div>
+            <div class="selected-city" id="selectedCity">Select your city</div>
+        </div>
+        
+        <div class="prayer-container">
+           
+            
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="main.js"></script>
+
+
+</html>

@@ -1,0 +1,296 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+        }
+        
+        #project-container {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Animated background elements */
+        #project-container::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border-radius: 50%;
+            top: 10%;
+            left: 20%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        #project-container::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border-radius: 50%;
+            bottom: 15%;
+            right: 25%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        h1 {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* City Selection Styles */
+        .city-selection {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 2.5rem auto;
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .city-input-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        #cityInput {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            padding-right: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        #cityInput::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+        }
+        
+        #cityInput:focus {
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 4px 20px rgba(0,0,0,0.2),
+                0 0 0 3px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .search-icon {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1rem;
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0.4rem 0.7rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+}
+
+/* 3D pressed effect on click */
+.search-icon:active {
+    transform: translateY(-50%) translateY(2px); /* move button down slightly */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) inset; /* inner shadow */
+}
+        .search-icon:hover{
+             cursor: pointer;
+            
+        }
+        
+        .selected-city {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .selected-city::before {
+            content: '📍';
+            margin-right: 0.5rem;
+        }
+        
+        .prayer-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .prayer {
+            width: min(350px, 90%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 
+                0 8px 32px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+        
+        .prayer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        }
+        
+        .prayer:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 40px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+        
+        .title {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+            text-transform: capitalize;
+        }
+        
+        .time {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.05em;
+        }
+        
+        .time::before {
+            content: '🕒';
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .city-selection {
+                max-width: 85%;
+                margin-bottom: 2rem;
+            }
+            
+            #cityInput {
+                padding: 0.9rem 1.2rem;
+                padding-right: 2.8rem;
+            }
+            
+            .prayer {
+                width: 85%;
+                padding: 2rem 1.5rem;
+            }
+            
+            .title {
+                font-size: 1.3rem;
+            }
+            
+            .time {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .city-selection {
+                max-width: 90%;
+            }
+            
+            .prayer {
+                width: 90%;
+                padding: 1.5rem 1rem;
+            }
+        }
+        
+        /* Subtle pulse animation for time */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .time {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .datetime-container {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            color: rgba(255, 255, 255, 0.95);
+            font-family: 'Inter', monospace;
+            text-align: center;
+            min-width: 200px;
+            animation: fadeInUp 1s ease-out 0.1s both;
+        }
